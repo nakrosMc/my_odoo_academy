@@ -15,6 +15,7 @@
         "views/hostel_room_view.xml",
         "views/hostel.xml",
         "views/hostel_category_view.xml",
+        "views/room_copy_view.xml",
         "views/menu_views.xml",
         "data/data.xml"
     ],
