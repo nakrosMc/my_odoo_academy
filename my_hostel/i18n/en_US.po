@@ -1,0 +1,164 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* my_hostel
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-20 13:46+0000\n"
+"PO-Revision-Date: 2024-11-20 13:46+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: my_hostel
+#: model_terms:ir.ui.view,arch_db:my_hostel.view_hostel_form_view
+msgid "Address"
+msgstr ""
+
+#. module: my_hostel
+#: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__street
+msgid "Calle"
+msgstr "Street"
+
+#. module: my_hostel
+#: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__street2
+msgid "Calle2"
+msgstr "Street2"
+
+#. module: my_hostel
+#: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__city
+msgid "Ciudad"
+msgstr "City"
+
+#. module: my_hostel
+#: model_terms:ir.ui.view,arch_db:my_hostel.view_hostel_form_view
+msgid "Code"
+msgstr ""
+
+#. module: my_hostel
+#: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__email
+msgid "Correo Electrónico"
+msgstr "Email"
+
+#. module: my_hostel
+#: model_terms:ir.actions.act_window,help:my_hostel.action_hostel
+msgid "Create Hostel."
+msgstr ""
+
+#. module: my_hostel
+#: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: my_hostel
+#: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: my_hostel
+#: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__hostel_code
+msgid "Código"
+msgstr "Code"
+
+#. module: my_hostel
+#: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__zip
+msgid "Código Postal"
+msgstr "Zip"
+
+#. module: my_hostel
+#: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: my_hostel
+#: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__state_id
+msgid "Estado"
+msgstr "State"
+
+#. module: my_hostel
+#: model:ir.actions.act_window,name:my_hostel.action_hostel
+#: model:ir.ui.menu,name:my_hostel.hostel_main_menu
+#: model:ir.ui.menu,name:my_hostel.hostel_type_menu
+#: model_terms:ir.ui.view,arch_db:my_hostel.view_hostel_form_view
+msgid "Hostel"
+msgstr ""
+
+#. module: my_hostel
+#: model:ir.module.category,name:my_hostel.module_category_hostel
+msgid "Hostel Management"
+msgstr ""
+
+#. module: my_hostel
+#: model:res.groups,name:my_hostel.group_hostel_manager
+msgid "Hostel Manager"
+msgstr ""
+
+#. module: my_hostel
+#: model:res.groups,name:my_hostel.group_hostel_user
+msgid "Hostel User"
+msgstr ""
+
+#. module: my_hostel
+#: model_terms:ir.ui.view,arch_db:my_hostel.view_hostel_tree_view
+msgid "Hostels"
+msgstr ""
+
+#. module: my_hostel
+#: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__id
+msgid "ID"
+msgstr ""
+
+#. module: my_hostel
+#: model:ir.model,name:my_hostel.model_hostel_hostel
+msgid "Información sobre el hostel"
+msgstr "Hotel information"
+
+#. module: my_hostel
+#: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: my_hostel
+#: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: my_hostel
+#: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__mobile
+msgid "Móvil"
+msgstr "Mobile"
+
+#. module: my_hostel
+#: model_terms:ir.ui.view,arch_db:my_hostel.view_hostel_form_view
+msgid "Name"
+msgstr ""
+
+#. module: my_hostel
+#: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__name
+msgid "Nombre del Hostel"
+msgstr "Hostel name"
+
+#. module: my_hostel
+#: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__country_id
+msgid "País"
+msgstr "Country"
+
+#. module: my_hostel
+#: model_terms:ir.ui.view,arch_db:my_hostel.view_hostel_form_view
+msgid "Street 2..."
+msgstr ""
+
+#. module: my_hostel
+#: model_terms:ir.ui.view,arch_db:my_hostel.view_hostel_form_view
+msgid "Street..."
+msgstr ""
+
+#. module: my_hostel
+#: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__phone
+msgid "Teléfono"
+msgstr "Phobe"

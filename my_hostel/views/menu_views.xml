@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Menú raíz -->
+        <menuitem id="hostel_menu_root" name="Hostel" sequence="10" web_icon="my_hostel,static/description/icon.png"/>
+
+        <!-- Submenús -->
+        <menuitem id="hostel_menu" name="Hostels" parent="hostel_menu_root" action="my_hostel.hostel_action_menu" sequence="10" />
+        <menuitem id="room_menu" name="Room" parent="hostel_menu_root" action="my_hostel.room_action_menu" sequence="15"/>
+        <menuitem id="student_menu" name="Student" parent="hostel_menu_root" action="my_hostel.hostel_student_action" sequence="20"/>
+        <menuitem id="category_menu" name="Category" parent="hostel_menu_root" action="my_hostel.category_action_menu" sequence="25"/>
+    </data>
+</odoo>
