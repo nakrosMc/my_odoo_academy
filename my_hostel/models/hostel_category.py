@@ -19,6 +19,9 @@ class HostelCategory(models.Model):
         'hostel.category', 'parent_id',
         string='Child Categories'
     )
+    child_ids = fields.One2many(
+        'hostel.category', 'parent_id',
+        string='Child Categories')
 
     @api.constrains('parent_id')
     def _check_hierarchy(self):

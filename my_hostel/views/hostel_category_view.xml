@@ -10,6 +10,7 @@
                         <field name="name"/>
                         <field name="parent_id" />
                         <field name="parent_path" />
+                        <field name="child_ids" />
                     </group>
                 </sheet>
             </form>
