@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import fields, models, api
 
 class ResPartner(models.Model):
     _inherit = "res.partner"
@@ -11,6 +11,3 @@ class ResPartner(models.Model):
     def _compute_count_room(self):
         for partner in self:
             partner.count_assign_room = len(partner.assign_room_ids)
-
-
-

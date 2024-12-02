@@ -3,6 +3,14 @@ from odoo import fields, models
 class HostelStudent(models.Model):
     _name = "hostel.student"
     _description = 'Hostel for student'
+    _inherits = {'res.partner': 'partner_id'}
+    _description = "Hostel Student Information"
+
+    partner_id = fields.Many2one(
+        'res.partner',
+        ondelete='cascade',
+        required=True
+    )
 
     name = fields.Char('Student Name')
 
