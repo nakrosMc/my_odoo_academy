@@ -13,9 +13,11 @@
         "security/ir.model.access.csv",
         "views/hostel_student_view.xml",
         "views/hostel_room_view.xml",
+        "views/hostel_amenities_view.xml",
         "views/hostel.xml",
         "views/hostel_category_view.xml",
         "views/room_copy_view.xml",
+        "views/partner_herenci_view.xml",
         "views/menu_views.xml",
         "data/data.xml"
     ],

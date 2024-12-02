@@ -48,28 +48,32 @@ class HostelRoom(models.Model):
         store=True,
         help="Disponibilidad de la habitación en el hostel"
     )
+
     admission_date = fields.Date(
     "Admission Date",
     help="Fecha de admisión al hostel",
     default=fields.Datetime.today
     )
+
     discharge_date = fields.Date(
         "Discharge Date",
         help="Fecha de egreso del estudiante"
     )
+
     duration = fields.Integer(
         "Duration",
         compute="_compute_check_duration",
         inverse="_inverse_duration",
         help="Duración de la estadía"
     )
+
+    partner_ids = fields.Many2many('res.partner', string='Assigned Partners')
+    
     @api.depends("student_per_room", "studens_ids")
     def _compute_check_availability(self):
         """Método para calcular la disponibilidad de habitaciones"""
         for rec in self:
             rec.availability = rec.student_per_room - len(rec.studens_ids.ids)
-
-    partner_ids = fields.Many2many('res.partner', string='Assigned Partners')
 
     @api.constrains("rent_amount")
     def _check_rent_amount(self):

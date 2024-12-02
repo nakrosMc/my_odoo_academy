@@ -14,6 +14,7 @@
                         <field name="activate" />
                         <field name="room_id" />
                         <field name="hostel_id" widget='many2one' />
+                        <field name="partner_id" />
                     </group>
                 </sheet>
             </form>
