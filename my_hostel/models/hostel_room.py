@@ -1,9 +1,12 @@
 from odoo import fields, models, api
-from odoo.exceptions import ValidationError
+from odoo.exceptions import ValidationError, UserError
+from odoo.tools.translate import _
+
 
 class HostelRoom(models.Model):
     _name = "hostel.room"
     _description = 'amount of coins'
+    _inherit = ['base.archive']
     
 
     name = fields.Char(string='Room name', required=True)
@@ -69,6 +72,12 @@ class HostelRoom(models.Model):
 
     partner_ids = fields.Many2many('res.partner', string='Assigned Partners')
     
+    state = fields.Selection([
+        ('draft', 'unavailable'),
+        ('available', 'available'),
+        ('closed', 'closed')],
+        'State', default="draft")
+
     @api.depends("student_per_room", "studens_ids")
     def _compute_check_availability(self):
         """Método para calcular la disponibilidad de habitaciones"""
@@ -87,6 +96,32 @@ class HostelRoom(models.Model):
         for rec in self:
             if rec.discharge_date and rec.admission_date:
                 rec.duration = (rec.discharge_date - rec.admission_date).days
+    
+    @api.model
+    def is_allowed_transition(self, old_state, new_state):
+        allowed = [
+            ('draft', 'available'),
+            ('available', 'closed'),
+            ('closed', 'draft')
+        ]
+        return (old_state, new_state) in allowed
+
+    def change_state(self, new_state):
+        for room in self:
+            if room.is_allowed_transition(room.state, new_state):
+                room.state = new_state
+            else:
+                continue
+
+    def make_available(self):
+        self.change_state('available')
+
+    def make_closed(self):
+        self.change_state('closed')
+
+
+    # def make_draft(self):
+    #     self.change_state('draft')
 
     def _inverse_duration(self):
         for stu in self:
@@ -96,6 +131,14 @@ class HostelRoom(models.Model):
                     stu.discharge_date = (
                         stu.admission_date + timedelta(days=stu.duration)
                     ).strftime('%Y-%m-%d')
+
+    def change_state(self, new_state):
+        for room in self:
+            if room.is_allowed_transition(room.state, new_state):
+                room.state = new_state
+            else:
+                msg = _(f'Moving from {room.state} to {new_state} is not allow')
+                raise UserError(msg)
 
     _sql_constraints = [
     ("room_num_unique", "unique(room_num)", "¡El número de habitación debe ser único!")

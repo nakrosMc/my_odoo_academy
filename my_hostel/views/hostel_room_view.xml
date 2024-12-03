@@ -24,6 +24,10 @@
                         <field name="discharge_date" />
                         <field name="duration" readonly="1"/>
                         <field name="partner_ids" />
+                        <button name="make_available" string="Hacer Disponible" type="object"/>
+                        <button name="make_closed" string="Hacer Ocupada" type="object"/>
+                        <!-- <button name="make_draft" string="Hacer No disponible" type="object"/> -->
+                        <field name="state" widget="statusbar"/>
                     </group>
                 </group>
                 </sheet>
