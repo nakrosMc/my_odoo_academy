@@ -8,9 +8,11 @@
                 <sheet>
                     <group>
                         <field name="name"/>
+                        <field name="description" />
                         <field name="parent_id" />
                         <field name="parent_path" />
                         <field name="child_ids" />
+                        <button name="create_categories" string="Create Categories" type="object"/>
                     </group>
                 </sheet>
             </form>

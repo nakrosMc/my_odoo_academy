@@ -140,6 +140,13 @@ class HostelRoom(models.Model):
                 msg = _(f'Moving from {room.state} to {new_state} is not allow')
                 raise UserError(msg)
 
+    def log_all_room_members(self):
+        hostel_room_obj = self.env['hostel.room.member']
+        print(hostel_room_obj)
+        all_members = hostel_room_obj.search([])
+        print("ALL MEMBERS", all_members)
+        return True
+
     _sql_constraints = [
     ("room_num_unique", "unique(room_num)", "¡El número de habitación debe ser único!")
     ]

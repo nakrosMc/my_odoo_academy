@@ -6,3 +6,4 @@ from . import hostel_amenities
 from . import hostel_category
 from . import hostel_room_copy
 from . import hostel_book
+from . import hostel_room_member

@@ -18,6 +18,7 @@
         "views/hostel_category_view.xml",
         "views/room_copy_view.xml",
         "views/partner_herenci_view.xml",
+        "views/room_member_view.xml",
         "views/menu_views.xml",
         "data/data.xml"
     ],
