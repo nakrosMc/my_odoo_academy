@@ -169,13 +169,35 @@ class HostelRoom(models.Model):
     def find_partner(self):
         partnerObj = self.env['res.partner']
         domain=[
-            '&' ('name','ilike','SerpentCS'),
+            '&', ('name','ilike','SerpentCS'),
             ('company_id.name','=','SCS')
         ]
         partner = partnerObj.search(domain)
         _logger.info(partner)
         return True
+
+    def get_recordsets(self):
+    # Primer conjunto de registros: contactos cuyo nombre contiene "SerpentCS"
+        recordset1 = self.env['res.partner'].search([('name', 'ilike', 'SerpentCS')])
+
+    # Segundo conjunto de registros: contactos de una compañía específica
+        recordset2 = self.env['res.partner'].search([('company_id.name', '=', 'SCS')])
+
+    # Retornar ambos conjuntos
+        return recordset1, recordset2
+
+    def combine_recordsets(self):
+    # Obtener los dos recordsets
+        recordset1, recordset2 = self.get_recordsets()
+
+    # Unir los recordsets (sin duplicados)
+        combined_recordset = recordset1 | recordset2
+
+    # Imprimir los registros combinados
+        _logger.info(f"Combined Recordset: {combined_recordset}")
+        return combined_recordset
+
         
     _sql_constraints = [
-    ("room_num_unique", "unique(room_num)", "¡El número de habitación debe ser único!")
+        ("room_num_unique", "unique(room_num)", "¡El número de habitación debe ser único!")
     ]

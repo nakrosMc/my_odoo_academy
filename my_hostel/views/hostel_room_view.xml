@@ -11,6 +11,9 @@
                     <!-- <button name="make_draft" string="Hacer No disponible" type="object"/> -->
                     <button name="find_room" type="object" string="busuqueda"/>
                     <button name="log_all_room_members" string="Log Members" type="object"/>
+                    <button name="find_partner" type="object" string="Busqueda de modelos"/>
+                    <button name="get_recordsets" type="object" string="recorrer"/>
+                    <button name="combine_recordsets" type="object" string="combinar"/>
                     <field name="state" widget="statusbar"/>
                 </header>
                 <sheet>
