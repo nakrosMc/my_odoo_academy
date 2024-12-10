@@ -1,5 +1,6 @@
 from odoo import fields, models, api, _
 import logging
+from odoo.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
 
@@ -8,12 +9,14 @@ class HostelRoomCopy(models.Model):
     _inherit = "hostel.room"
     _description = "Hostel Room Information Copy"
 
+    
     hostel_amenities_ids = fields.Many2many("hostel.amenities",
         "hostel_room_copy_amenities_rel", 
         "room_id", "amenitiy_id",
         string="Amenities", 
         domain="[('active', '=', True)]",
         help="Select hostel room amenities")
+
 
     def filter_members(self):
         all_rooms = self.search([])  # Busca todas las habitaciones
@@ -47,7 +50,6 @@ class HostelRoomCopy(models.Model):
     def sort_rooms_by_rating(self, all_rooms):
         orden_rent = all_rooms.sorted(key='rent_amount')
         return orden_rent.mapped('name')
-        
 
 
 

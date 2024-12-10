@@ -11,7 +11,6 @@ class HostelRoom(models.Model):
     _description = 'amount of coins'
     _inherit = ['base.archive']
     
-
     name = fields.Char(string='Room name', required=True)
     category_id = fields.Many2one('hostel.category')
     room_num  = fields.Integer(string='Room No.')
@@ -75,6 +74,8 @@ class HostelRoom(models.Model):
     )
 
     partner_ids = fields.Many2many('res.partner', string='Assigned Partners')
+
+    member_ids = fields.Many2many('hostel.room.member', string='Members')
     
     state = fields.Selection([
         ('draft', 'unavailable'),
