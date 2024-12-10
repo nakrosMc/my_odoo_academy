@@ -6,6 +6,9 @@
         <field name="arch" type="xml">
             <form string="">
                 <header>
+                <button name="filter_members" type="object" string="filtrado"/>
+                <button name="mapped_rooms" type="object" string="mapping"/>
+                <button name="sort_room" type="object" string="orden"/>
                 </header>
                 <sheet>
                 <group name="copy" string="string">

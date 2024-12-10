@@ -1,6 +1,9 @@
 from odoo import fields, models, api
 from odoo.exceptions import ValidationError, UserError
 from odoo.tools.translate import _
+import logging
+
+_logger = logging.getLogger(__name__)
 
 
 class HostelRoom(models.Model):
@@ -10,6 +13,7 @@ class HostelRoom(models.Model):
     
 
     name = fields.Char(string='Room name', required=True)
+    category_id = fields.Many2one('hostel.category')
     room_num  = fields.Integer(string='Room No.')
     floor_num  = fields.Integer(string='Floor No.')
 
@@ -142,11 +146,58 @@ class HostelRoom(models.Model):
 
     def log_all_room_members(self):
         hostel_room_obj = self.env['hostel.room.member']
-        print(hostel_room_obj)
         all_members = hostel_room_obj.search([])
         print("ALL MEMBERS", all_members)
         return True
 
+    def update_room_no(self):
+        self.ensure_one()
+        self.room_num = "10"
+
+    def find_room(self):
+        domain = [  
+            '|',  
+            '&', ('name', 'ilike', 'The Penth House'),  
+            ('category_id.name', 'ilike', 'prueba'),
+            '&', ('name', 'ilike', 'tiburon'),  
+            ('category_id.name', 'ilike', 'Parent category')  
+            ]  
+        rooms = self.search(domain)  
+        _logger.info(f'Room found: {rooms}')
+        return True
+
+    def find_partner(self):
+        partnerObj = self.env['res.partner']
+        domain=[
+            '&', ('name','ilike','SerpentCS'),
+            ('company_id.name','=','SCS')
+        ]
+        partner = partnerObj.search(domain)
+        _logger.info(partner)
+        return True
+
+    def get_recordsets(self):
+    # Primer conjunto de registros: contactos cuyo nombre contiene "SerpentCS"
+        recordset1 = self.env['res.partner'].search([('name', 'ilike', 'SerpentCS')])
+
+    # Segundo conjunto de registros: contactos de una compañía específica
+        recordset2 = self.env['res.partner'].search([('company_id.name', '=', 'SCS')])
+
+    # Retornar ambos conjuntos
+        return recordset1, recordset2
+
+    def combine_recordsets(self):
+    # Obtener los dos recordsets
+        recordset1, recordset2 = self.get_recordsets()
+
+    # Unir los recordsets (sin duplicados)
+        combined_recordset = recordset1 | recordset2
+
+    # Imprimir los registros combinados
+        _logger.info(f"Combined Recordset: {combined_recordset}")
+        return combined_recordset
+
+        
     _sql_constraints = [
-    ("room_num_unique", "unique(room_num)", "¡El número de habitación debe ser único!")
+        ("room_num_unique", "unique(room_num)", "¡El número de habitación debe ser único!")
     ]

@@ -9,15 +9,20 @@
                     <button name="make_available" string="Hacer Disponible" type="object"/>
                     <button name="make_closed" string="Hacer Ocupada" type="object"/>
                     <!-- <button name="make_draft" string="Hacer No disponible" type="object"/> -->
-                    
+                    <button name="find_room" type="object" string="busuqueda"/>
                     <button name="log_all_room_members" string="Log Members" type="object"/>
+                    <button name="find_partner" type="object" string="Busqueda de modelos"/>
+                    <button name="get_recordsets" type="object" string="recorrer"/>
+                    <button name="combine_recordsets" type="object" string="combinar"/>
                     <field name="state" widget="statusbar"/>
                 </header>
                 <sheet>
                 <group name="name" string="string">
                     <group>
                         <field name="name" widget='char'/>
+                        <field name="category_id" />
                         <field name="room_num" />
+                        <button name="update_room_no" string="Update Room No" type="object"/>
                         <field name="floor_num" />
                         <field name="rent_amount" />
                         <field name="currency_id" />
@@ -54,6 +59,7 @@
                 <field name="hostel_amenities_ids" />
                 <field name="student_per_room" />
                 <field name="availability" />
+                <field name="state" widget="statusbar"/>
             </list>
         </field>
     </record>
