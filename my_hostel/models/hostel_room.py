@@ -12,6 +12,7 @@ class HostelRoom(models.Model):
     _inherit = ['base.archive']
     
     name = fields.Char(string='Room name', required=True)
+    cost_price = fields.Float('Room Cost')
     category_id = fields.Many2one('hostel.category')
     room_num  = fields.Integer(string='Room No.')
     floor_num  = fields.Integer(string='Floor No.')
