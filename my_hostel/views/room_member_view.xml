@@ -8,7 +8,9 @@
             <header>
             </header>
             <sheet>
+            <group name="data" string="">
                 <field name="name" placeholder='Your name'/>
+            </group>
             </sheet>
         </form>
     </field>

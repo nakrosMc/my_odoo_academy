@@ -76,8 +76,14 @@ class HostelRoom(models.Model):
 
     partner_ids = fields.Many2many('res.partner', string='Assigned Partners')
 
-    member_ids = fields.Many2many('hostel.room.member', string='Members')
-    
+    # member_ids = fields.Many2many(
+    #     comodel_name='res.partner',
+    #     relation='hostel_room_member_rel',  # Relación de la tabla intermedia
+    #     column1='room_id',  # Nombre de la columna en la tabla intermedia
+    #     column2='member_id',  # Nombre de la columna en la tabla intermedia
+    #     string='Members'
+    # )
+
     state = fields.Selection([
         ('draft', 'unavailable'),
         ('available', 'available'),

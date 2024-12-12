@@ -3,6 +3,7 @@
     <data noupdate="1">
         <record id="hostel_room_01" model="hostel.room">
         <field name="name">Hostel Room 01</field>
+        <field name="student_per_room">4</field>
         </record>
         <record id="base.main_company" model="res.company">
         <field name="name">Packt Publishing</field>

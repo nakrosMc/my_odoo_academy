@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Creación de socios -->
+        <record id="member_hda" model="res.partner">
+            <field name="name">Husen Daudi</field>
+        </record>
+        <record id="member_jvo" model="res.partner">
+            <field name="name">Jay Vora</field>
+        </record>
+
+        <!-- Creación de habitación -->
+        <record id="hostel_room_1" model="hostel.room">
+            <field name="name">Hostel Room 01</field>
+            <field name="room_num">121</field>
+            <field name="student_per_room">1</field>
+            <field name="partner_ids" eval="[(6, 0, [ref('member_hda'), ref('member_jvo')])]" />
+        </record>
+
+    </data>
+</odoo>

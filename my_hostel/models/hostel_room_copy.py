@@ -17,6 +17,13 @@ class HostelRoomCopy(models.Model):
         domain="[('active', '=', True)]",
         help="Select hostel room amenities")
 
+    member_ids = fields.Many2many(
+        comodel_name='hostel.room.member',  # El comodel_name debe coincidir con el nombre correcto del modelo
+        relation='hostel_room_member_rel_copy',  # Relación de la tabla intermedia
+        column1='room_copy_id',  # Nombre de la columna en la tabla intermedia
+        column2='member_id',  # Nombre de la columna en la tabla intermedia
+        string='Members'
+    )
 
     def filter_members(self):
         all_rooms = self.search([])  # Busca todas las habitaciones
