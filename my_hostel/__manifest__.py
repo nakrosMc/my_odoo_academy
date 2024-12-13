@@ -6,7 +6,7 @@
     'license': 'LGPL-3',
     'website': "http://www.example.com",
     'category': 'Uncategorized',
-    'version': '18.0.1.0.0',
+    'version': '18.0.0.1',
     'depends': ['base'],
     'data': [
         "security/hostel_security.xml",
@@ -29,5 +29,4 @@
     ],
     'installable': True,  # Asegúrate de que el módulo es instalable
     'auto_install': False,  # Esto es útil si no quieres que se instale automáticamente
-
 }

@@ -15,6 +15,7 @@
                         <field name="room_id" />
                         <field name="hostel_id" widget='many2one' />
                         <field name="partner_id" />
+                        <field name="allocation_date" />
                     </group>
                 </sheet>
             </form>
