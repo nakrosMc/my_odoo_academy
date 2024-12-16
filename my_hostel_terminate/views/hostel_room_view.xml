@@ -13,8 +13,6 @@
                 <field name="remarks" />
                 <field name="previous_room_id" />
                 <button name="group_ave" type="object" string="Price avg"/>
-                <button name="create" type="object" string="create"/>
-                <button name="write" type="object" string="write"/>
             </field>
         </field>
     </record>

@@ -205,6 +205,12 @@ class HostelRoom(models.Model):
         _logger.info(f"Combined Recordset: {combined_recordset}")
         return combined_recordset
 
+    @api.model
+    def _update_room_price(self):
+        all_rooms = self.search([])
+        for room in all_rooms:
+            room.cost_price += 10
+
         
     _sql_constraints = [
         ("room_num_unique", "unique(room_num)", "¡El número de habitación debe ser único!")
