@@ -20,6 +20,7 @@
                 <group name="name" string="string">
                     <group>
                         <field name="name" widget='char'/>
+                        <field name="cost_price" />
                         <field name="category_id" />
                         <field name="room_num" />
                         <button name="update_room_no" string="Update Room No" type="object"/>
@@ -36,8 +37,7 @@
                         <field name="admission_date" widget='date' />
                         <field name="discharge_date" />
                         <field name="duration" readonly="1"/>
-                        <field name="partner_ids" />
-                        
+                        <field name="partner_ids" widget="many2many_tags" />
                     </group>
                 </group>
                 </sheet>

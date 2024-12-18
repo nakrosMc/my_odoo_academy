@@ -11,6 +11,8 @@
                 <field name="category_id"/>
                 <field name="date_terminate"/>
                 <field name="remarks" />
+                <field name="previous_room_id" />
+                <button name="group_ave" type="object" string="Price avg"/>
             </field>
         </field>
     </record>
@@ -24,6 +26,7 @@
         <field name="arch" type="xml">
             <field name="parent_id" position="after">
                 <field name="max_allow_days"/>
+                
             </field>
         </field>
     </record>

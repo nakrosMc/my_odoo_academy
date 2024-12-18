@@ -30,3 +30,5 @@ class HostelStudent(models.Model):
         )
 
     hostel_id = fields.Many2one("hostel.hostel", related="room_id.hostel_id")
+
+    allocation_date = fields.Char(string='Date allocation')

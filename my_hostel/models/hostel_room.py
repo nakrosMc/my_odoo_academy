@@ -12,6 +12,7 @@ class HostelRoom(models.Model):
     _inherit = ['base.archive']
     
     name = fields.Char(string='Room name', required=True)
+    cost_price = fields.Float('Room Cost')
     category_id = fields.Many2one('hostel.category')
     room_num  = fields.Integer(string='Room No.')
     floor_num  = fields.Integer(string='Floor No.')
@@ -75,8 +76,14 @@ class HostelRoom(models.Model):
 
     partner_ids = fields.Many2many('res.partner', string='Assigned Partners')
 
-    member_ids = fields.Many2many('hostel.room.member', string='Members')
-    
+    # member_ids = fields.Many2many(
+    #     comodel_name='res.partner',
+    #     relation='hostel_room_member_rel',  # Relación de la tabla intermedia
+    #     column1='room_id',  # Nombre de la columna en la tabla intermedia
+    #     column2='member_id',  # Nombre de la columna en la tabla intermedia
+    #     string='Members'
+    # )
+
     state = fields.Selection([
         ('draft', 'unavailable'),
         ('available', 'available'),
@@ -197,6 +204,12 @@ class HostelRoom(models.Model):
     # Imprimir los registros combinados
         _logger.info(f"Combined Recordset: {combined_recordset}")
         return combined_recordset
+
+    @api.model
+    def _update_room_price(self):
+        all_rooms = self.search([])
+        for room in all_rooms:
+            room.cost_price += 10
 
         
     _sql_constraints = [
