@@ -2,13 +2,6 @@ from odoo import fields
 from datetime import date
 
 def migrate(cr, version):
-    print('version')
-    print('version')
-    print('version')
-    print(version)
-    print('version')
-    print('version')
-    print('version')
     # Luego, cambiamos el tipo de la columna allocation_date a DATE (si aún no lo has hecho)
     cr.execute('ALTER TABLE hostel_student ADD COLUMN allocation_date DATE')
     
