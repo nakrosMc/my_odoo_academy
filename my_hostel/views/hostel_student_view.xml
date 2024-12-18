@@ -4,8 +4,9 @@
         <field name="name">Student</field>
         <field name="model">hostel.student</field>
         <field name="arch" type="xml">
-            <form edit="0" create='0'>
+            <form>
                 <header>
+                <button name="action_assign_room" type="object" string="create room"/>
                 </header>
                 <sheet>
                     <group name="name" string="string">
@@ -16,6 +17,7 @@
                         <field name="hostel_id" widget='many2one' />
                         <field name="partner_id" />
                         <field name="allocation_date" />
+                        <field name="status" />
                     </group>
                 </sheet>
             </form>

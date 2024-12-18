@@ -26,7 +26,8 @@ class HostelRoom(models.Model):
 
     @api.model_create_multi
     def create(self, values):
-        if not self.user_has_groups('my_hostel.group_hostel_manager'):
+        user = self.env.user
+        if not user.has_groups('my_hostel.group_hostel_manager'):
             values.get('remarks')
             if values.get('remarks'):
                 raise UserError(
@@ -35,8 +36,7 @@ class HostelRoom(models.Model):
                 )
         return super(HostelRoom, self).create(values)
 
-    def write(self, values):
-        user = self.env.user
+    def write(self, values, user):
         if not user.has_group('my_hostel.group_hostel_manager'):
             if values.get('remarks'):
                 raise UserError(
@@ -46,13 +46,11 @@ class HostelRoom(models.Model):
         return super(HostelRoom, self).write(values)
 
 
-    def name_get(self):
-        result = []
+    @api.depends('name', 'partner_ids.name')
+    def _compute_display_name(self):
         for room in self:
             member = room.partner_ids.mapped('name')
-            name = f"{room.name} ({', '.join(member)})"
-            result.append((room.id, name))
-        return result
+            room.display_name = f"{room.name} ({', '.join(member)})" if member else room.name
 
     @api.model
     def _name_search(self, name='', args=None, operator='ilike',
