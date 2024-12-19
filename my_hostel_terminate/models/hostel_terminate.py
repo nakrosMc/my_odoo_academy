@@ -36,7 +36,8 @@ class HostelRoom(models.Model):
                 )
         return super(HostelRoom, self).create(values)
 
-    def write(self, values, user):
+    def write(self, values):
+        user = self.env.user
         if not user.has_group('my_hostel.group_hostel_manager'):
             if values.get('remarks'):
                 raise UserError(
@@ -78,6 +79,25 @@ class HostelRoom(models.Model):
         )
         return grouped_result
 
+    def action_category_with_amount(self):
+            # Ejecutamos la consulta SQL para obtener el nombre y la cantidad
+        self.env.cr.execute("""
+                SELECT
+                    hrc.name
+                FROM
+                    hostel_room AS hostel_room
+                JOIN
+                    hostel_category AS hrc ON hrc.id = hostel_room.category_id
+                WHERE hostel_room.category_id = %(cate_id)s;
+            """, {'cate_id': self.category_id.id})
+        result = self.env.cr.fetchall()
+        _logger.warning("Hostel Room With Amount: %s", result)
+
+            # Obtenemos el resultado de la consulta
+        result = self.env.cr.fetchall()
+
+            # Registramos el resultado en el log
+        _logger.warning("Hostel Room With Amount: %s", result)
 
 class RoomCategory(models.Model):
     _inherit = 'hostel.category'

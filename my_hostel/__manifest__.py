@@ -14,6 +14,7 @@
         "data/data.xml",
         "data/datatxt.xml",
         "data/config.xml",
+        "views/student_wizard_view.xml",
         "views/hostel_student_view.xml",
         "views/hostel_room_view.xml",
         "views/hostel_amenities_view.xml",

@@ -42,7 +42,7 @@ class HostelStudent(models.Model):
 
         # Verifica que el estudiante haya pagado antes de asignar una habitación
         if self.status != "paid":
-            raise UserError(_("You can't assign a room if it's not paid."))
+            raise UserError(("You can't assign a room if it's not paid."))
 
         # Crea un registro de habitación como superusuario
         room_as_superuser = self.env['hostel.room'].sudo()
@@ -53,5 +53,8 @@ class HostelStudent(models.Model):
             "category_id": 21,
             "hostel_id": self.hostel_id.id,
             "student_per_room" : 1
-
         })
+
+    def action_remove_room(self):
+        if self.env.context.get("is_hostel_room"):
+            self.room_id = False

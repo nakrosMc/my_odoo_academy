@@ -215,3 +215,7 @@ class HostelRoom(models.Model):
     _sql_constraints = [
         ("room_num_unique", "unique(room_num)", "¡El número de habitación debe ser único!")
     ]
+
+    def action_remove_room_members(self):
+        student = self.env['hostel.student'].search([('room_id', '=', self.id)])
+        student.with_context(is_hostel_room=True).action_remove_room()
