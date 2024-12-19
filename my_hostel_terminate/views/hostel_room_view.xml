@@ -13,6 +13,7 @@
                 <field name="remarks" />
                 <field name="previous_room_id" />
                 <button name="group_ave" type="object" string="Price avg"/>
+                <button name="action_category_with_amount" type="object" string="Log Category With Amount" class="btn-primary"/>
             </field>
         </field>
     </record>

@@ -26,7 +26,8 @@ class HostelRoom(models.Model):
 
     @api.model_create_multi
     def create(self, values):
-        if not self.user_has_groups('my_hostel.group_hostel_manager'):
+        user = self.env.user
+        if not user.has_groups('my_hostel.group_hostel_manager'):
             values.get('remarks')
             if values.get('remarks'):
                 raise UserError(
@@ -46,13 +47,11 @@ class HostelRoom(models.Model):
         return super(HostelRoom, self).write(values)
 
 
-    def name_get(self):
-        result = []
+    @api.depends('name', 'partner_ids.name')
+    def _compute_display_name(self):
         for room in self:
             member = room.partner_ids.mapped('name')
-            name = f"{room.name} ({', '.join(member)})"
-            result.append((room.id, name))
-        return result
+            room.display_name = f"{room.name} ({', '.join(member)})" if member else room.name
 
     @api.model
     def _name_search(self, name='', args=None, operator='ilike',
@@ -80,6 +79,25 @@ class HostelRoom(models.Model):
         )
         return grouped_result
 
+    def action_category_with_amount(self):
+            # Ejecutamos la consulta SQL para obtener el nombre y la cantidad
+        self.env.cr.execute("""
+                SELECT
+                    hrc.name
+                FROM
+                    hostel_room AS hostel_room
+                JOIN
+                    hostel_category AS hrc ON hrc.id = hostel_room.category_id
+                WHERE hostel_room.category_id = %(cate_id)s;
+            """, {'cate_id': self.category_id.id})
+        result = self.env.cr.fetchall()
+        _logger.warning("Hostel Room With Amount: %s", result)
+
+            # Obtenemos el resultado de la consulta
+        result = self.env.cr.fetchall()
+
+            # Registramos el resultado en el log
+        _logger.warning("Hostel Room With Amount: %s", result)
 
 class RoomCategory(models.Model):
     _inherit = 'hostel.category'

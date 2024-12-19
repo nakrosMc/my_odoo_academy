@@ -15,6 +15,7 @@
                     <button name="get_recordsets" type="object" string="recorrer"/>
                     <button name="combine_recordsets" type="object" string="combinar"/>
                     <field name="state" widget="statusbar"/>
+                    <button name="action_remove_room_members" string="Remove Room Members" type="object" class="btn-primary"/>
                 </header>
                 <sheet>
                 <group name="name" string="string">
