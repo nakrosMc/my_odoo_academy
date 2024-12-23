@@ -7,6 +7,7 @@
             <form>
                 <header>
                 <button name="action_assign_room" type="object" string="create room"/>
+                <button name="action_open_wizard" type="object" string="Assign Room" class="btn-primary"/>
                 </header>
                 <sheet>
                     <group name="name" string="string">
@@ -17,6 +18,8 @@
                         <field name="hostel_id" widget='many2one' />
                         <field name="partner_id" />
                         <field name="allocation_date" />
+                        <field name="discharge_date" />
+                        <field name="duration" />
                         <field name="status" />
                     </group>
                 </sheet>

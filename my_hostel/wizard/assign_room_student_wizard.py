@@ -15,5 +15,5 @@ class AssignRoomStudentWizard(models.TransientModel):
             hostel_room_student.update({
                 'hostel_id': self.room_id.hostel_id.id,
                 'room_id': self.room_id.id,
-                'admission_date': datetime.today(),
+                'allocation_date': datetime.today(),
             })
