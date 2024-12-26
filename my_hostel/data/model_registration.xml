@@ -1,0 +1,9 @@
+<odoo>
+    <data noupdate="1">
+        <record id="model_hostel_room_availability" model="ir.model">
+            <field name="name">hostel room availability</field>
+            <field name="model">hostel.room.availability</field>
+            <field name="state">manual</field>
+        </record>
+    </data>
+</odoo>

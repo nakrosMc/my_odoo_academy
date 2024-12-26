@@ -1,6 +1,7 @@
 from odoo import fields, models, api
 from odoo.exceptions import ValidationError, UserError
 from odoo.tools.translate import _
+from odoo.tests.common import Form
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -109,6 +110,14 @@ class HostelRoom(models.Model):
             ('closed', 'draft')
         ]
         return (old_state, new_state) in allowed
+
+    def return_room(self):
+        self.ensure_one()
+        wizard = self.env['assign.room.student.wizard']
+        with Form(wizard) as return_form:
+            return_form.room_id = self.env.ref('my_hostel.judini')
+            record = return_form.save()
+            record.with_context(active_id=self.id).add_room_in_student()
 
     def change_state(self, new_state):
         for room in self:

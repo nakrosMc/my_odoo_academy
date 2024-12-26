@@ -12,5 +12,6 @@
         <menuitem id="amenities_menu" name="Amenities" parent="hostel_menu_root" action="my_hostel.amenities_menu_action" sequence="25"/>
         <menuitem id="category_menu" name="Category" parent="hostel_menu_root" action="my_hostel.category_action_menu" sequence="30"/>
         <menuitem id="room_menu_copy" name="Room Copy" parent="hostel_menu_root" action="my_hostel.copy_room_action2" sequence="35"/>
+        <menuitem id="hostel_room_availability_menu" name="Room Availability" parent="hostel_menu_root" action="my_hostel.action_hostel_room_availability_pivot" sequence="40"/>
     </data>
 </odoo>

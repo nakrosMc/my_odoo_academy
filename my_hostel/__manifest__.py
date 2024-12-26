@@ -14,6 +14,7 @@
         "data/data.xml",
         "data/datatxt.xml",
         "data/config.xml",
+        "data/model_registration.xml",
         "views/student_wizard_view.xml",
         "views/hostel_student_view.xml",
         "views/hostel_room_view.xml",
@@ -23,6 +24,7 @@
         "views/room_member_view.xml",
         "views/room_copy_view.xml",
         "views/partner_herenci_view.xml",
+        'views/hostel_room_availability_views.xml',
         "views/menu_views.xml",
     ],
     'demo': [
