@@ -25,11 +25,15 @@
         "views/room_copy_view.xml",
         "views/partner_herenci_view.xml",
         'views/hostel_room_availability_views.xml',
+        "views/res_config_settings_views.xml",
         "views/menu_views.xml",
     ],
     'demo': [
     'data/demo.xml',
     ],
+    'post_init_hook': 'add_room_hook',
+    'pre_init_hook': 'pre_init_hook_hostel',
+    'uninstall_init_hook': 'uninstall_hook_user',
     'installable': True,  # Asegúrate de que el módulo es instalable
     'auto_install': False,  # Esto es útil si no quieres que se instale automáticamente
 }

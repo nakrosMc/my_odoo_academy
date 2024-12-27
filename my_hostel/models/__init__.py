@@ -8,4 +8,5 @@ from . import hostel_room_copy
 from . import hostel_book
 from . import hostel_room_member
 from . import hostel_room_availability
+from . import res_config_settings
 from ..wizard import assign_room_student_wizard

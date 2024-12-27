@@ -47,7 +47,6 @@ class HostelRoom(models.Model):
 
     student_per_room = fields.Integer(
     "Student Per Room",
-    required=True,
     help="Estudiantes asignados por habitación"
     )
     availability = fields.Float(
