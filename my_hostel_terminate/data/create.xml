@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data noupdate="1">
+        <record id="action_hostel_room" model="ir.actions.act_window">
+            <field name="name">All Hostel Room</field>
+            <field name="res_model">hostel.room</field>
+            <field name="view_mode">list,form</field>
+        </record>
+    </data>
+</odoo>

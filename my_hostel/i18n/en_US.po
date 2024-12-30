@@ -1,24 +1,7 @@
-# Translation of Odoo Server.
-# This file contains the translation of the following modules:
-# 	* my_hostel
-#
-msgid ""
-msgstr ""
-"Project-Id-Version: Odoo Server 18.0+e\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-20 13:46+0000\n"
-"PO-Revision-Date: 2024-11-20 13:46+0000\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
-
 #. module: my_hostel
 #: model_terms:ir.ui.view,arch_db:my_hostel.view_hostel_form_view
 msgid "Address"
-msgstr ""
+msgstr "Dirección"
 
 #. module: my_hostel
 #: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__street
@@ -38,7 +21,7 @@ msgstr "City"
 #. module: my_hostel
 #: model_terms:ir.ui.view,arch_db:my_hostel.view_hostel_form_view
 msgid "Code"
-msgstr ""
+msgstr "Código"
 
 #. module: my_hostel
 #: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__email
@@ -48,17 +31,17 @@ msgstr "Email"
 #. module: my_hostel
 #: model_terms:ir.actions.act_window,help:my_hostel.action_hostel
 msgid "Create Hostel."
-msgstr ""
+msgstr "Crear Hostel."
 
 #. module: my_hostel
 #: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creado por"
 
 #. module: my_hostel
 #: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creado en"
 
 #. module: my_hostel
 #: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__hostel_code
@@ -73,7 +56,7 @@ msgstr "Zip"
 #. module: my_hostel
 #: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nombre para mostrar"
 
 #. module: my_hostel
 #: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__state_id
@@ -86,47 +69,47 @@ msgstr "State"
 #: model:ir.ui.menu,name:my_hostel.hostel_type_menu
 #: model_terms:ir.ui.view,arch_db:my_hostel.view_hostel_form_view
 msgid "Hostel"
-msgstr ""
+msgstr "Hostal"
 
 #. module: my_hostel
 #: model:ir.module.category,name:my_hostel.module_category_hostel
 msgid "Hostel Management"
-msgstr ""
+msgstr "Gestión de Hostales"
 
 #. module: my_hostel
 #: model:res.groups,name:my_hostel.group_hostel_manager
 msgid "Hostel Manager"
-msgstr ""
+msgstr "Gerente de Hostal"
 
 #. module: my_hostel
 #: model:res.groups,name:my_hostel.group_hostel_user
 msgid "Hostel User"
-msgstr ""
+msgstr "Usuario de Hostal"
 
 #. module: my_hostel
 #: model_terms:ir.ui.view,arch_db:my_hostel.view_hostel_tree_view
 msgid "Hostels"
-msgstr ""
+msgstr "Hostales"
 
 #. module: my_hostel
 #: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: my_hostel
 #: model:ir.model,name:my_hostel.model_hostel_hostel
 msgid "Información sobre el hostel"
-msgstr "Hotel information"
+msgstr "Información sobre el hostal"
 
 #. module: my_hostel
 #: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Última actualización por"
 
 #. module: my_hostel
 #: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Última actualización en"
 
 #. module: my_hostel
 #: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__mobile
@@ -136,12 +119,12 @@ msgstr "Mobile"
 #. module: my_hostel
 #: model_terms:ir.ui.view,arch_db:my_hostel.view_hostel_form_view
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #. module: my_hostel
 #: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__name
 msgid "Nombre del Hostel"
-msgstr "Hostel name"
+msgstr "Nombre del Hostal"
 
 #. module: my_hostel
 #: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__country_id
@@ -151,14 +134,14 @@ msgstr "Country"
 #. module: my_hostel
 #: model_terms:ir.ui.view,arch_db:my_hostel.view_hostel_form_view
 msgid "Street 2..."
-msgstr ""
+msgstr "Calle 2..."
 
 #. module: my_hostel
 #: model_terms:ir.ui.view,arch_db:my_hostel.view_hostel_form_view
 msgid "Street..."
-msgstr ""
+msgstr "Calle..."
 
 #. module: my_hostel
 #: model:ir.model.fields,field_description:my_hostel.field_hostel_hostel__phone
 msgid "Teléfono"
-msgstr "Phobe"
+msgstr "Teléfono"
