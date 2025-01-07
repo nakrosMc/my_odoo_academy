@@ -118,13 +118,6 @@ class HostelRoom(models.Model):
             record = return_form.save()
             record.with_context(active_id=self.id).add_room_in_student()
 
-    def change_state(self, new_state):
-        for room in self:
-            if room.is_allowed_transition(room.state, new_state):
-                room.state = new_state
-            else:
-                continue
-
     def make_available(self):
         self.change_state('available')
 
