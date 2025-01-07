@@ -25,6 +25,8 @@ class HostelCategory(models.Model):
         'hostel.category', 'parent_id',
         string='Child Categories')
 
+    date_assign = fields.Datetime(string="Start Date")
+    date_end = fields.Datetime(string="End Date")
 
     @api.constrains('parent_id')
     def _check_hierarchy(self):

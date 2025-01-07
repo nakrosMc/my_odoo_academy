@@ -6,14 +6,13 @@
         <field name="model">hostel.room</field>
         <field name="inherit_id" ref="my_hostel.hostel_room_view_form"/>
         <field name="arch" type="xml">
-            <field name="partner_ids" position="after">
-                <field name="category_id"/>
+            <xpath expr="//field[@name='partner_ids']" position="after">
                 <field name="date_terminate"/>
                 <field name="remarks" />
                 <field name="previous_room_id" />
                 <button name="group_ave" type="object" string="Price avg"/>
                 <button name="action_category_with_amount" type="object" string="Log Category With Amount" class="btn-primary"/>
-            </field>
+            </xpath>
         </field>
     </record>
 
@@ -25,7 +24,6 @@
         <field name="arch" type="xml">
             <field name="parent_id" position="after">
                 <field name="max_allow_days"/>
-                
             </field>
         </field>
     </record>

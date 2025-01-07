@@ -5,7 +5,7 @@
     'author': "Nakros",
     'license': 'LGPL-3',
     'website': "http://www.example.com",
-    'category': 'Uncategorized',
+    'category': 'hostel',
     'version': '18.0.0.1',
     'depends': ['base', 'mail'],
     'data': [
