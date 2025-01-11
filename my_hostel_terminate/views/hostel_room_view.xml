@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
     <!-- Room Form View inherit -->
     <record id="hostel_room_view_form_inh" model="ir.ui.view">
         <field name="name">Hostel Room Form</field>
         <field name="model">hostel.room</field>
         <field name="inherit_id" ref="my_hostel.hostel_room_view_form"/>
         <field name="arch" type="xml">
-            <field name="partner_ids" position="after">
-                <field name="category_id"/>
+            <xpath expr="//field[@name='partner_ids']" position="after">
                 <field name="date_terminate"/>
                 <field name="remarks" />
                 <field name="previous_room_id" />
                 <button name="group_ave" type="object" string="Price avg"/>
                 <button name="action_category_with_amount" type="object" string="Log Category With Amount" class="btn-primary"/>
-            </field>
+            </xpath>
         </field>
     </record>
-
 
     <!-- Room Category Form View inherit -->
     <record id="hostel_room_category_view_form_inh" model="ir.ui.view">
@@ -27,10 +24,7 @@
         <field name="arch" type="xml">
             <field name="parent_id" position="after">
                 <field name="max_allow_days"/>
-                
             </field>
         </field>
     </record>
-
-
 </odoo>

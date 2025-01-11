@@ -14,11 +14,11 @@
                     <button name="find_partner" type="object" string="Busqueda de modelos"/>
                     <button name="get_recordsets" type="object" string="recorrer"/>
                     <button name="combine_recordsets" type="object" string="combinar"/>
-                    <field name="state" widget="statusbar"/>
+                    <field name="stage_id" widget="statusbar" options="{'clickable': '1', 'fold_field': 'fold'}"/>
                     <button name="action_remove_room_members" string="Remove Room Members" type="object" class="btn-primary"/>
                 </header>
                 <sheet>
-                <group name="name" string="string">
+                <group name="name" string="data">
                     <group>
                         <field name="name" widget='char'/>
                         <field name="cost_price" />
@@ -29,18 +29,24 @@
                         <field name="rent_amount" />
                         <field name="currency_id" />
                         <field name="hostel_id" string='Hsotel'/>
-                        <field name="studens_ids" />
-                        <field name="hostel_amenities_ids" />
                         <field name="student_per_room" />
                         <field name="availability" />
                     </group>
-                    <group name="name" string="string">
+                    <group>
                         <field name="admission_date" widget='date' />
                         <field name="discharge_date" />
                         <field name="duration" readonly="1"/>
                         <field name="partner_ids" widget="many2many_tags" />
                     </group>
                 </group>
+                <notebook>
+                    <page name="Students" string="Students">
+                        <field name="studens_ids" />
+                    </page>
+                    <page name="Aminities" string="Amenities">
+                        <field name="hostel_amenities_ids" />
+                    </page>
+                </notebook>
                 </sheet>
             </form>
         </field>
@@ -60,18 +66,35 @@
                 <field name="hostel_amenities_ids" />
                 <field name="student_per_room" />
                 <field name="availability" />
-                <field name="state" widget="statusbar"/>
+                <field name="stage_id" widget="statusbar"/>
             </list>
         </field>
     </record>
 
-    
+    <!-- Vista de búsqueda para la vista de lista -->
+    <record id="hostel_room_view_search" model="ir.ui.view">
+        <field name="name">Room Search</field>
+        <field name="model">hostel.room</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="room_num"/>
+                <field name="category_id"/>
+                <searchpanel>
+                    <field name="state" expand="1" select="multi" icon="fa-check-square-o" enable_counters="1"/>
+                </searchpanel>
+                <!-- <filter string="State Draft" domain="[('state', '=', 'draft')]"/> -->
+            </search>
+        </field>
+    </record>
+
     <record id="room_action_menu" model="ir.actions.act_window">
         <field name="name">Room</field>
         <field name="res_model">hostel.room</field>
         <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="hostel_room_view_search"/>
         <field name="help">Room manage</field>
+        <field name="help">Room manage</field>
+        <field name="context">{'lang': 'en_US','default_lang': 'en_US', 'active_test': False}</field>
     </record>
-    
-    
 </odoo>

@@ -18,12 +18,5 @@
                 </form>
             </field>
         </record>
-
-        <record model="ir.actions.act_window" id="action_assign_room_student_wizard">
-            <field name="name">Assign Room</field>
-            <field name="res_model">assign.room.student.wizard</field>
-            <field name="view_mode">form</field>
-            <field name="target">new</field>
-        </record>
     </data>
 </odoo>

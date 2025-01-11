@@ -3,6 +3,7 @@ from odoo.exceptions import ValidationError
 
 class HostelCategory(models.Model):
     _name = "hostel.category"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "hostel category"
     _parent_store = True
     _parent_name = "parent_id"  # opcional si el campo es 'parent_id'
@@ -24,6 +25,8 @@ class HostelCategory(models.Model):
         'hostel.category', 'parent_id',
         string='Child Categories')
 
+    date_assign = fields.Datetime(string="Start Date")
+    date_end = fields.Datetime(string="End Date")
 
     @api.constrains('parent_id')
     def _check_hierarchy(self):

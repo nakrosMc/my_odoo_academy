@@ -1,6 +1,7 @@
 from odoo import fields, models, api
 from odoo.exceptions import ValidationError, UserError
 from odoo.tools.translate import _
+from odoo.tests.common import Form
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -46,7 +47,6 @@ class HostelRoom(models.Model):
 
     student_per_room = fields.Integer(
     "Student Per Room",
-    required=True,
     help="Estudiantes asignados por habitación"
     )
     availability = fields.Float(
@@ -75,14 +75,6 @@ class HostelRoom(models.Model):
     )
 
     partner_ids = fields.Many2many('res.partner', string='Assigned Partners')
-
-    # member_ids = fields.Many2many(
-    #     comodel_name='res.partner',
-    #     relation='hostel_room_member_rel',  # Relación de la tabla intermedia
-    #     column1='room_id',  # Nombre de la columna en la tabla intermedia
-    #     column2='member_id',  # Nombre de la columna en la tabla intermedia
-    #     string='Members'
-    # )
 
     state = fields.Selection([
         ('draft', 'unavailable'),
@@ -118,12 +110,13 @@ class HostelRoom(models.Model):
         ]
         return (old_state, new_state) in allowed
 
-    def change_state(self, new_state):
-        for room in self:
-            if room.is_allowed_transition(room.state, new_state):
-                room.state = new_state
-            else:
-                continue
+    def return_room(self):
+        self.ensure_one()
+        wizard = self.env['assign.room.student.wizard']
+        with Form(wizard) as return_form:
+            return_form.room_id = self.env.ref('my_hostel.judini')
+            record = return_form.save()
+            record.with_context(active_id=self.id).add_room_in_student()
 
     def make_available(self):
         self.change_state('available')
@@ -132,8 +125,8 @@ class HostelRoom(models.Model):
         self.change_state('closed')
 
 
-    # def make_draft(self):
-    #     self.change_state('draft')
+    def make_draft(self):
+        self.change_state('draft')
 
     def _inverse_duration(self):
         for stu in self:
@@ -219,3 +212,15 @@ class HostelRoom(models.Model):
     def action_remove_room_members(self):
         student = self.env['hostel.student'].search([('room_id', '=', self.id)])
         student.with_context(is_hostel_room=True).action_remove_room()
+
+    @api.model
+    def _default_room_stage(self):
+        Stage = self.env['hostel.stage']
+        return Stage.search([], limit=1)
+
+    stage_id = fields.Many2one(
+        'hostel.stage',
+        string="Stage",
+        default=_default_room_stage
+        )
+

@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import fields, models, api
 from odoo.exceptions import UserError
 
 class HostelStudent(models.Model):
@@ -32,7 +32,20 @@ class HostelStudent(models.Model):
 
     hostel_id = fields.Many2one("hostel.hostel", related="room_id.hostel_id")
 
-    allocation_date = fields.Char(string='Date allocation')
+    allocation_date = fields.Date(string='Date allocation')
+
+    discharge_date = fields.Date(string='Date discharge')
+
+    duration = fields.Integer(string="Duration", default=0)
+
+    @api.onchange('allocation_date', 'discharge_date')
+    def onchange_duration(self):
+        if self.discharge_date and self.allocation_date:
+            self.duration = (
+                (self.discharge_date.year - self.allocation_date.year) * 12 +
+                (self.discharge_date.month - self.allocation_date.month)
+            )
+
 
     status = fields.Selection([('paid', 'paid'), ('unpaid', 'unpaid')])
 
@@ -58,3 +71,16 @@ class HostelStudent(models.Model):
     def action_remove_room(self):
         if self.env.context.get("is_hostel_room"):
             self.room_id = False
+
+    def action_open_wizard(self):
+        self.ensure_one()
+        return {
+            'name': 'Assign Room',
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'res_model': 'assign.room.student.wizard',
+            'target': 'new',
+        }
+
+
+
