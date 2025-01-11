@@ -14,7 +14,7 @@
                     <button name="find_partner" type="object" string="Busqueda de modelos"/>
                     <button name="get_recordsets" type="object" string="recorrer"/>
                     <button name="combine_recordsets" type="object" string="combinar"/>
-                    <field name="state" widget="statusbar"/>
+                    <field name="stage_id" widget="statusbar" options="{'clickable': '1', 'fold_field': 'fold'}"/>
                     <button name="action_remove_room_members" string="Remove Room Members" type="object" class="btn-primary"/>
                 </header>
                 <sheet>
@@ -66,7 +66,7 @@
                 <field name="hostel_amenities_ids" />
                 <field name="student_per_room" />
                 <field name="availability" />
-                <field name="state" widget="statusbar"/>
+                <field name="stage_id" widget="statusbar"/>
             </list>
         </field>
     </record>

@@ -212,3 +212,15 @@ class HostelRoom(models.Model):
     def action_remove_room_members(self):
         student = self.env['hostel.student'].search([('room_id', '=', self.id)])
         student.with_context(is_hostel_room=True).action_remove_room()
+
+    @api.model
+    def _default_room_stage(self):
+        Stage = self.env['hostel.stage']
+        return Stage.search([], limit=1)
+
+    stage_id = fields.Many2one(
+        'hostel.stage',
+        string="Stage",
+        default=_default_room_stage
+        )
+
