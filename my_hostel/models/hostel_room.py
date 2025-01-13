@@ -224,3 +224,4 @@ class HostelRoom(models.Model):
         default=_default_room_stage
         )
 
+
