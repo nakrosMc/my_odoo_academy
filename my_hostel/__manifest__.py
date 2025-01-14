@@ -29,6 +29,7 @@
         "views/res_config_settings_views.xml",
         "views/hostel_stage_view.xml",
         "views/menu_views.xml",
+        "reports/hostel_room_detail_report_template.xml"
     ],
     'demo': [
     'data/demo.xml',

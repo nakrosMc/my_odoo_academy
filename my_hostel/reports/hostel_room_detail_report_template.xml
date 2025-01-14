@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<odoo>  
+    <template id="hostel_room_detail_reports_template">  
+        <t t-call="web.html_container">  
+            <t t-foreach="docs" t-as="doc">  
+                <t t-call="web.internal_layout">  
+                    <div class="page">  
+                        <h1>Room name: <t t-esc="doc.name"/></h1>  
+                        <h1>Room No: <t t-esc="doc.name"/></h1>  
+                        <table class="table table-condensed">  
+                            <thead>  
+                                <tr>  
+                                    <th>Student Name</th>  
+                                    <th>Gender</th>  
+                                </tr>  
+                            </thead>  
+                            <tbody>  
+                                <tr t-foreach="doc.studens_ids" t-as="student">  
+                                    <td><t t-esc="student.name" /></td>  
+                                    <td><t t-esc="student.gender"/></td>  
+                                </tr>  
+                            </tbody>  
+                        </table>  
+                    </div>  
+                </t>  
+            </t>  
+        </t>  
+    </template>  
+
+    <record id="report_hostel_room_detail" model="ir.actions.report">  
+        <field name="name">Room detail report</field>  
+        <field name="model">hostel.room</field>  
+        <field name="report_type">qweb-pdf</field>  
+        <field name="binding_model_id" ref="model_hostel_room"/>  
+        <field name="report_name">my_hostel.hostel_room_detail_reports_template</field>  
+        <field name="report_file">my_hostel.hostel_room_detail_reports_template</field>  
+    </record>  
+</odoo>

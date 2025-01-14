@@ -44,10 +44,17 @@ class Hostel(models.Model):
         print(models_ids)
         return [(x.model, x.name) for x in models_ids]
 
-    @api.depends('hostel_code')
-    def _compute_display_name(self):
-        for record in self:
-            name = record.name
-            if record.hostel_code:
-                name = f'{name} ({record.hostel_code})'
-                record.display_name = name
+    # @api.depends('hostel_code')
+    # def _compute_display_name(self):
+    #     for record in self:
+    #         name = record.name
+    #         if record.hostel_code:
+    #             name = f'{name} ({record.hostel_code})'
+    #             record.display_name = name
+
+    rooms_count = fields.Integer(compute="_compute_rooms_count")
+
+    def _compute_rooms_count(self):
+        room_obj = self.env['hostel.room']
+        for hostel in self:
+            hostel.rooms_count = room_obj.search_count([])
