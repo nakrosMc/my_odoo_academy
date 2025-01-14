@@ -31,6 +31,7 @@
                         <field name="hostel_id" string='Hsotel'/>
                         <field name="student_per_room" />
                         <field name="availability" />
+                        <field name="active" invisible="1"/>
                     </group>
                     <group>
                         <field name="admission_date" widget='date' />

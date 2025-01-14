@@ -17,6 +17,7 @@ class HostelRoom(models.Model):
     category_id = fields.Many2one('hostel.category')
     room_num  = fields.Integer(string='Room No.')
     floor_num  = fields.Integer(string='Floor No.')
+    active = fields.Boolean(default=True)
 
     currency_id = fields.Many2one(
         'res.currency',

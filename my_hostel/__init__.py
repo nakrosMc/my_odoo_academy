@@ -1,6 +1,8 @@
 from . import models
+from . import controllers
 
 from odoo import api, SUPERUSER_ID
+
 
 def add_room_hook(env):
     room_data1 = {'name': 'Room 1', 'room_num': '01'}
